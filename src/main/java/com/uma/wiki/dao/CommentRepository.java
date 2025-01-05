@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface CommentRepository extends MongoRepository<CommentEntity, ObjectId> {
     CommentEntity findByCommentId(String commentId);
+    
     void deleteByCommentId(String commentId);
 
     @Query("{ 'content' : { $regex: ?0, $options: 'i' } }")
